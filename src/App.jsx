@@ -1,33 +1,33 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
-/**
- * App Component - A todo list management application
- * 
- * Manages a list of todos with the ability to add, toggle completion status, and delete items.
- * 
- * @component
- * @returns {JSX.Element} The rendered todo application with input field, add button, and todo list
- * 
- * @description
- * This component maintains three pieces of state:
- * - todos: Array of todo objects, each containing id, text, and completed status
- * - input: Current value of the input field
- * - nextId: Counter for generating unique todo IDs
- * 
- * The square brackets in `setTodos([...todos, newTodo])` represent the spread operator (`...`)
- * used to create a new array. This spreads all existing todos into a new array and appends
- * the newTodo at the end. This is done to create a new array reference (immutability),
- * which is required by React to properly detect state changes and re-render the component.
- * 
- * @example
- * // Usage in index.js or main.jsx
- * <App />
- */
+const  TODO_STORAGE_KEY = 'todos'
+
+const loadTodos = () => {
+  try {
+    const storedTodos = localStorage.getItem(TODO_STORAGE_KEY)
+    const parsedTodos = storedTodos ? JSON.parse(storedTodos) : []
+    return Array.isArray(parsedTodos) ? parsedTodos : []
+  } catch {
+    return []
+  }
+}
+
 function App() {
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(loadTodos)
   const [input, setInput] = useState('')
-  const [nextId, setNextId] = useState(1)
+  const [nextId, setNextId] = useState(() => {
+    const initialTodos = loadTodos()
+    const maxId = initialTodos.reduce(
+      (max, todo) => (Number.isFinite(todo.id) && todo.id > max ? todo.id : max),
+      0
+    )
+    return maxId + 1
+  })
+
+  useEffect(() => {
+    localStorage.setItem(TODO_STORAGE_KEY, JSON.stringify(todos))
+  }, [todos])
 
   // Add a new todo
   const addTodo = () => {
@@ -73,7 +73,7 @@ function App() {
           placeholder="Add a new todo..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyPress}
         />
         <button onClick={addTodo}>Add</button>
       </div>
