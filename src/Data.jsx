@@ -1,9 +1,9 @@
 export const portfolio = {
   name: "Your Name",
   title: "Full Stack Developer",
-  email: "your.email@example.com",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
+  email: "oluwatunmbipaul@gmail.com",
+  github: "https://github.com/Paulolutunmbi",
+  linkedin: "https://www.linkedin.com/in/paul-olutunmbi-ba61752b6/",
   
   about: "I'm a passionate developer who loves building web applications that solve real problems. I specialize in React and modern JavaScript, and I'm always learning new technologies.",
   
