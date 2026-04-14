@@ -7,14 +7,15 @@ export const portfolio = {
   linkedin: "https://www.linkedin.com/in/paul-olutunmbi-ba61752b6",
   whatsapp: "https://wa.me/2347071102618",
   
-  about: "I'm a Computer Science student building my skills in HTML, CSS, Tailwind CSS, Bootstrap, and responsive design. Currently learning JavaScript and React to create dynamic, interactive web experiences. I started my coding journey with Python and reached an intermediate level before shifting focus to web development.",
+  about: "I'm a Computer Science student building my skills in HTML, CSS, Tailwind CSS, Bootstrap, and responsive design. Currently learning JavaScript and React to create dynamic, interactive web experiences.",
   
-  longVision: "My goal is to become a Full-Stack Software Architect, mastering both frontend and backend technologies to design and build complete, scalable solutions. I'm committed to continuous learning and growth, taking it one step at a time.",
+  longVision: "My goal is to become a Full-Stack Software Architect, mastering both frontend and backend technologies to design and build complete, scalable solutions.",
   
   projects: [
     {
       id: 1,
       title: "MealNest",
+      slug: "mealnest",
       description: "A responsive Nigerian food discovery app that lets users search meals, filter by category and region, toggle vegetarian and spicy options, and save favorite meals with localStorage. It uses an external API to deliver an interactive browsing experience with a meal detail modal.",
       tags: ["HTML", "Tailwind CSS", "JavaScript", "REST API", "LocalStorage"],
       github: "https://github.com/Paulolutunmbi/mealnest",
@@ -24,6 +25,7 @@ export const portfolio = {
     {
       id: 2,
       title: "EduGrade",
+      slug: "edugrade",
       description: "A responsive web app that calculates and displays student grades for secondary school, polytechnic, and university levels. Built with JavaScript and Tailwind CSS, it demonstrates dynamic DOM manipulation, event handling, and interactive UI design.",
       tags: ["HTML", "JavaScript", "Tailwind CSS", "Responsive"],
       github: "https://github.com/Paulolutunmbi/EduGrade",
@@ -33,6 +35,7 @@ export const portfolio = {
     {
       id: 3,
       title: "BookDiverse",
+      slug: "bookdiverse",
       description: "A book browsing website built as a learning project. Created with HTML and CSS to practice layout design and responsive techniques. Helped me understand how to structure content and create clean, readable interfaces.",
       tags: ["HTML", "CSS", "Bootstrap", "Responsive"],
       github: "https://github.com/Paulolutunmbi/project_bookdiverse-SQI",
@@ -42,6 +45,7 @@ export const portfolio = {
     {
       id: 4,
       title: "Web.dev Clone",
+      slug: "web-dev-clone",
       description: "A clone of the Web.dev landing page built to practice CSS layout skills. Helped me learn CSS Grid, Flexbox, and how to recreate professional designs. Focused on matching the layout and making it responsive.",
       tags: ["HTML", "CSS"],
       github: "https://github.com/Paulolutunmbi/web-dev-clone",
@@ -51,6 +55,7 @@ export const portfolio = {
     {
       id: 5,
       title: "Animation",
+      slug: "animation",
       description: "A project focused on learning CSS animations and transitions. Practiced using keyframes, transforms, and timing functions to create smooth visual effects.",
       tags: ["HTML", "CSS"],
       github: "https://github.com/Paulolutunmbi/Animation",
@@ -60,6 +65,7 @@ export const portfolio = {
     {
       id: 6,
       title: "Solar System",
+      slug: "solar-system",
       description: "A solar system visualization project built with HTML and CSS. Images are positioned using CSS to create a visual representation of the solar system.",
       tags: ["HTML", "CSS"],
       github: "https://github.com/Paulolutunmbi/solar-system",
