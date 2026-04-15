@@ -6,6 +6,7 @@ export const portfolio = {
   github: "https://github.com/Paulolutunmbi",
   linkedin: "https://www.linkedin.com/in/paul-olutunmbi-ba61752b6",
   whatsapp: "https://wa.me/2347071102618",
+  profileImage: "/images/profile-pic.jpg",
   
   about: "I'm a Computer Science student building my skills in HTML, CSS, Tailwind CSS, Bootstrap, and responsive design. Currently learning JavaScript and React to create dynamic, interactive web experiences.",
   
@@ -20,7 +21,7 @@ export const portfolio = {
       tags: ["HTML", "Tailwind CSS", "JavaScript", "REST API", "LocalStorage"],
       github: "https://github.com/Paulolutunmbi/mealnest",
       demo: "https://mealnest-1n65.vercel.app/",
-      image: "🍽️"
+      image: "/images/food-api.jpg"
     },
     {
       id: 2,
@@ -30,7 +31,7 @@ export const portfolio = {
       tags: ["HTML", "JavaScript", "Tailwind CSS", "Responsive"],
       github: "https://github.com/Paulolutunmbi/EduGrade",
       demo: "https://edu-grade-kappa.vercel.app/",
-      image: "📊"
+      image: "/images/edugrade.jpg"
     },
     {
       id: 3,
@@ -40,7 +41,7 @@ export const portfolio = {
       tags: ["HTML", "CSS", "Bootstrap", "Responsive"],
       github: "https://github.com/Paulolutunmbi/project_bookdiverse-SQI",
       demo: "https://project-bookdiverse-sqi.vercel.app/",
-      image: "📚"
+      image: "/images/bookdiverse.jpg"
     },
     {
       id: 4,
@@ -50,7 +51,7 @@ export const portfolio = {
       tags: ["HTML", "CSS"],
       github: "https://github.com/Paulolutunmbi/web-dev-clone",
       demo: "https://web-dev-clone-jade.vercel.app",
-      image: "🎨"
+      image: "/images/web-dev-clone.jpg"
     },
     {
       id: 5,
@@ -60,7 +61,7 @@ export const portfolio = {
       tags: ["HTML", "CSS"],
       github: "https://github.com/Paulolutunmbi/Animation",
       demo: "https://animation-hazel-rho.vercel.app",
-      image: "✨"
+      image: "/images/animation.jpg"
     },
     {
       id: 6,
@@ -70,7 +71,17 @@ export const portfolio = {
       tags: ["HTML", "CSS"],
       github: "https://github.com/Paulolutunmbi/solar-system",
       demo: "https://solar-system-rho-ashen.vercel.app/",
-      image: "🌍"
+      image: "/images/solar-system.jpg"
+    },
+    {
+      id: 7,
+      title: "Wikipedia Landing Page Clone",
+      slug: "wikipedia-clone",
+      description: "A clone of the Wikipedia landing page created to practice HTML structure and semantic markup. Focused on organizing a complex layout with clean structure and CSS positioning.",
+      tags: ["HTML", "CSS"],
+      github: "https://github.com/Paulolutunmbi/Wikipedia-clone",
+      demo: "https://wikipedia-clone-rosy.vercel.app/",
+      image: "/images/wikipedia-landing-page-clone.jpg"
     }
   ],
   
