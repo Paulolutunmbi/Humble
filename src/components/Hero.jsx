@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { portfolio } from '../Data.jsx'
 import { ScrollIndicator } from './ScrollIndicator'
+import { HeroTechOrb } from './HeroTechOrb'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -47,6 +48,11 @@ export function Hero() {
         stagger: 0.15,
         duration: 0.5
       }, '-=0.3')
+      .from('.hero-visual', {
+        opacity: 0,
+        y: 30,
+        duration: 0.6
+      }, '-=0.45')
       .from('.scroll-indicator', {
         opacity: 0,
         y: -10,
@@ -74,51 +80,59 @@ export function Hero() {
       <div className="hero-grid" />
 
       <div className="hero-content" ref={contentRef}>
-        <div className="hero-badge">
-          <span className="dot" />
-          Available for opportunities
-        </div>
+        <div className="hero-layout">
+          <div className="hero-copy">
+            <div className="hero-badge">
+              <span className="dot" />
+              Available for opportunities
+            </div>
 
-        <p className="hero-greeting">Hello, I'm</p>
+            <p className="hero-greeting">Hello, I'm</p>
 
-        <h1 className="hero-name">
-          {nameWords.map((word, i) => (
-            <span className="word" key={i}>
-              <span className="word-inner">{word}</span>
-              {i < nameWords.length - 1 && '\u00A0'}
-            </span>
-          ))}
-        </h1>
+            <h1 className="hero-name">
+              {nameWords.map((word, i) => (
+                <span className="word" key={i}>
+                  <span className="word-inner">{word}</span>
+                  {i < nameWords.length - 1 && '\u00A0'}
+                </span>
+              ))}
+            </h1>
 
-        <p className="hero-title-sub">
-          Aspiring <span className="highlight">Full-Stack Developer</span>
-        </p>
+            <p className="hero-title-sub">
+              Aspiring <span className="highlight">Full-Stack Developer</span>
+            </p>
 
-        <p className="hero-description">
-          {portfolio.about}
-        </p>
+            <p className="hero-description">
+              {portfolio.about}
+            </p>
 
-        <div className="hero-buttons">
-          <button
-            className="btn-primary"
-            onClick={() => scrollToSection('projects')}
-          >
-            View My Work <span className="arrow">→</span>
-          </button>
-          <a
-            className="btn-secondary btn-cv"
-            href="/pdf/Paul_Oreoluwa_Olutunmbi_CV.pdf"
-            download="Paul_Oreoluwa_Olutunmbi_CV.pdf"
-            aria-label="Download Paul Olutunmbi CV PDF"
-          >
-            Download CV (PDF)
-          </a>
-          <button
-            className="btn-secondary"
-            onClick={() => scrollToSection('contact')}
-          >
-            Get In Touch
-          </button>
+            <div className="hero-buttons">
+              <button
+                className="btn-primary"
+                onClick={() => scrollToSection('projects')}
+              >
+                View My Work <span className="arrow">→</span>
+              </button>
+              <a
+                className="btn-secondary btn-cv"
+                href="/pdf/Paul_Oreoluwa_Olutunmbi_CV.pdf"
+                download="Paul_Oreoluwa_Olutunmbi_CV.pdf"
+                aria-label="Download Paul Olutunmbi CV PDF"
+              >
+                Download CV (PDF)
+              </a>
+              <button
+                className="btn-secondary"
+                onClick={() => scrollToSection('contact')}
+              >
+                Get In Touch
+              </button>
+            </div>
+          </div>
+
+          <div className="hero-visual">
+            <HeroTechOrb />
+          </div>
         </div>
       </div>
 
