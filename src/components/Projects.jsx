@@ -7,6 +7,13 @@ gsap.registerPlugin(ScrollTrigger)
 
 function ProjectCard({ project }) {
   const cardRef = useRef(null)
+  const getLinkOrPlaceholder = (url) =>
+    typeof url === 'string' && url.trim().length > 0 ? url.trim() : '#'
+
+  const demoUrl = getLinkOrPlaceholder(project.demo)
+  const codeUrl = getLinkOrPlaceholder(project.github)
+  const isDemoDisabled = demoUrl === '#'
+  const isCodeDisabled = codeUrl === '#'
 
   const handleMouseMove = useCallback((e) => {
     const card = cardRef.current
@@ -74,26 +81,28 @@ function ProjectCard({ project }) {
         </div>
 
         <div className="project-links">
-          {project.demo && (
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-link primary"
-            >
-              Live Demo <span className="link-arrow">↗</span>
-            </a>
-          )}
-          {project.github !== '#' && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-link"
-            >
-              Source <span className="link-arrow">↗</span>
-            </a>
-          )}
+          <a
+            href={demoUrl}
+            target={isDemoDisabled ? undefined : '_blank'}
+            rel={isDemoDisabled ? undefined : 'noopener noreferrer'}
+            className={`project-link primary ${isDemoDisabled ? 'is-disabled' : ''}`}
+            aria-disabled={isDemoDisabled}
+            title={isDemoDisabled ? 'Live demo coming soon' : `Open ${project.title} live demo in a new tab`}
+            onClick={isDemoDisabled ? (event) => event.preventDefault() : undefined}
+          >
+            Live Demo <span className="link-arrow">↗</span>
+          </a>
+          <a
+            href={codeUrl}
+            target={isCodeDisabled ? undefined : '_blank'}
+            rel={isCodeDisabled ? undefined : 'noopener noreferrer'}
+            className={`project-link ${isCodeDisabled ? 'is-disabled' : ''}`}
+            aria-disabled={isCodeDisabled}
+            title={isCodeDisabled ? 'Code repository coming soon' : `Open ${project.title} source code in a new tab`}
+            onClick={isCodeDisabled ? (event) => event.preventDefault() : undefined}
+          >
+            View Code <span className="link-arrow">↗</span>
+          </a>
         </div>
       </div>
     </div>

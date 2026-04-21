@@ -5,8 +5,18 @@ import { portfolio } from '../Data.jsx'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const aboutTechGroups = [
+  { key: 'frontend', label: 'Frontend' },
+  { key: 'backend', label: 'Backend' },
+  { key: 'database', label: 'Database' }
+]
+
 export function About() {
   const sectionRef = useRef(null)
+  const technologiesCount = aboutTechGroups.reduce((count, group) => {
+    const items = portfolio.skills?.[group.key]
+    return count + (Array.isArray(items) ? items.length : 0)
+  }, 0)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -105,13 +115,29 @@ export function About() {
             <p>{portfolio.about}</p>
             <p>{portfolio.longVision}</p>
 
+            <div className="about-tech" aria-label="Core technology stack">
+              {aboutTechGroups.map((group) => {
+                const items = portfolio.skills?.[group.key] ?? []
+                return (
+                  <div className="about-tech-group" key={group.key}>
+                    <h4 className="about-tech-title">{group.label}</h4>
+                    <ul className="about-tech-list">
+                      {items.map((tech) => (
+                        <li className="about-tech-item" key={tech}>{tech}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              })}
+            </div>
+
             <div className="about-stats">
               <div className="stat">
                 <div className="stat-number">{portfolio.projects.length}+</div>
                 <div className="stat-label">Projects Built</div>
               </div>
               <div className="stat">
-                <div className="stat-number">{portfolio.skills.frontend.length}+</div>
+                <div className="stat-number">{technologiesCount}+</div>
                 <div className="stat-label">Technologies</div>
               </div>
               <div className="stat">
