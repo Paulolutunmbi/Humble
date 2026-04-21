@@ -10,36 +10,33 @@ const skillCategories = [
     key: 'frontend',
     title: 'Frontend',
     icon: '🎨',
-    items: portfolio.skills.frontend
+    items: portfolio.skills.frontend ?? []
   },
   {
-    key: 'languages',
-    title: 'Languages',
-    icon: '💻',
-    items: portfolio.skills.languages
+    key: 'backend',
+    title: 'Backend',
+    icon: '⚙️',
+    items: portfolio.skills.backend ?? []
+  },
+  {
+    key: 'database',
+    title: 'Database',
+    icon: '🗄️',
+    items: portfolio.skills.database ?? []
   },
   {
     key: 'tools',
-    title: 'Tools & Platforms',
+    title: 'Tools',
     icon: '🛠️',
-    items: portfolio.skills.tools
-  },
-  {
-    key: 'soft',
-    title: 'Soft Skills',
-    icon: '🧠',
-    items: portfolio.skills.soft
-  },
-  {
-    key: 'learning',
-    title: 'Currently Learning',
-    icon: '📚',
-    items: portfolio.skills.learning
+    items: portfolio.skills.tools ?? []
   }
 ]
 
 export function Skills() {
   const sectionRef = useRef(null)
+  const visibleCategories = skillCategories.filter(
+    (category) => Array.isArray(category.items) && category.items.length > 0
+  )
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -87,7 +84,7 @@ export function Skills() {
         </div>
 
         <div className="skills-grid">
-          {skillCategories.map(category => (
+          {visibleCategories.map(category => (
             <div key={category.key} className="glass-card">
               <div className="card-shimmer" />
               <div className="skill-category">

@@ -104,6 +104,13 @@ export function Hero() {
           >
             View My Work <span className="arrow">→</span>
           </button>
+          <a
+            className="btn-secondary btn-cv"
+            href="/pdf/Paul_Oreoluwa_Olutunmbi_CV.pdf"
+            download="Paul_Oreoluwa_Olutunmbi_CV.pdf"
+          >
+            Download My CV
+          </a>
           <button
             className="btn-secondary"
             onClick={() => scrollToSection('contact')}

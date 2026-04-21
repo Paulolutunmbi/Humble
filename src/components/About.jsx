@@ -93,7 +93,7 @@ export function About() {
               />
             </div>
             <div className="about-experience-badge">
-              <div className="number">2+</div>
+              <div className="number">1+</div>
               <div className="label">Years Learning</div>
             </div>
           </div>

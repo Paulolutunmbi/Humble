@@ -80,14 +80,16 @@ export function Navigation() {
             <li>
               <button
                 type="button"
-                className="theme-toggle"
+                className={`theme-toggle ${theme === 'light' ? 'is-light' : ''}`}
                 onClick={toggleTheme}
                 aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
                 aria-pressed={theme === 'light'}
                 title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
               >
                 <span className="sr-only">Toggle theme</span>
-                <span className="theme-dot" aria-hidden="true" />
+                <span className="theme-track" aria-hidden="true">
+                  <span className="theme-thumb">{theme === 'light' ? '☀' : '🌙'}</span>
+                </span>
               </button>
             </li>
             <li>

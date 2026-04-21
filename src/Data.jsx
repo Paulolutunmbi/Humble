@@ -55,41 +55,30 @@ export const portfolio = {
     },
     {
       id: 5,
-      title: "Animation",
-      slug: "animation",
-      description: "A project focused on learning CSS animations and transitions. Practiced using keyframes, transforms, and timing functions to create smooth visual effects.",
-      tags: ["HTML", "CSS"],
-      github: "https://github.com/Paulolutunmbi/Animation",
-      demo: "https://animation-hazel-rho.vercel.app",
-      image: "/images/animation.jpg"
+      title: "Velocityh Gragarage",
+      slug: "velocityh-gragarage",
+      description: "A modern auto service web project focused on clean layouts, responsive sections, and strong visual hierarchy for a garage brand.",
+      tags: ["HTML5", "CSS3", "JavaScript", "Responsive UI"],
+      github: "#",
+      demo: "",
+      image: "/images/velocity-garage.png"
     },
     {
       id: 6,
-      title: "Solar System",
-      slug: "solar-system",
-      description: "A solar system visualization project built with HTML and CSS. Images are positioned using CSS to create a visual representation of the solar system.",
-      tags: ["HTML", "CSS"],
-      github: "https://github.com/Paulolutunmbi/solar-system",
-      demo: "https://solar-system-rho-ashen.vercel.app/",
-      image: "/images/solar-system.jpg"
-    },
-    {
-      id: 7,
-      title: "Wikipedia Landing Page Clone",
-      slug: "wikipedia-clone",
-      description: "A clone of the Wikipedia landing page created to practice HTML structure and semantic markup. Focused on organizing a complex layout with clean structure and CSS positioning.",
-      tags: ["HTML", "CSS"],
-      github: "https://github.com/Paulolutunmbi/Wikipedia-clone",
-      demo: "https://wikipedia-clone-rosy.vercel.app/",
-      image: "/images/wikipedia-landing-page-clone.jpg"
+      title: "Humble - Portfolio",
+      slug: "humble-portfolio",
+      description: "My personal portfolio website where I showcase projects, technical skills, and contact details for recruiters and collaborators.",
+      tags: ["React.js", "CSS3", "GSAP", "Vite"],
+      github: "https://github.com/Paulolutunmbi/Humble",
+      demo: "",
+      image: "/images/portfolio.jpg"
     }
   ],
   
   skills: {
-    frontend: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS", "Bootstrap"],
-    languages: ["Python (Intermediate)", "JavaScript (Learning)"],
-    tools: ["Git & GitHub", "VS Code", "Vercel", "Chrome DevTools", "Vite"],
-    soft: ["Problem Solving", "Critical Thinking", "Quick Learner", "Attention to Detail"],
-    learning: ["JavaScript", "React", "Responsive Design Patterns", "Full-Stack Development"]
+    frontend: ["HTML5", "CSS3", "React.js", "Tailwind CSS", "Bootstrap"],
+    backend: ["Node.js", "Express.js", "Python (Basics)"],
+    database: ["MongoDB", "Firebase", "Firestore"],
+    tools: ["Git", "GitHub", "REST APIs", "AI Productivity Tools"]
   }
 }
