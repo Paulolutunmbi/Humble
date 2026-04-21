@@ -84,22 +84,31 @@ export function Skills() {
         </div>
 
         <div className="skills-grid">
-          {visibleCategories.map(category => (
-            <div key={category.key} className="glass-card">
-              <div className="card-shimmer" />
-              <div className="skill-category">
-                <h3>
-                  <span className="skill-icon">{category.icon}</span>
-                  {category.title}
-                </h3>
-                <div className="skill-items">
-                  {category.items.map(skill => (
-                    <span key={skill} className="skill-item">{skill}</span>
-                  ))}
+          {visibleCategories.length > 0 ? (
+            visibleCategories.map(category => (
+              <div key={category.key} className="glass-card">
+                <div className="card-shimmer" />
+                <div className="skill-category">
+                  <h3>
+                    <span className="skill-icon">{category.icon}</span>
+                    {category.title}
+                  </h3>
+                  <div className="skill-items">
+                    {category.items.map(skill => (
+                      <span key={skill} className="skill-item">{skill}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
+            ))
+          ) : (
+            <div className="glass-card">
+              <div className="skill-category">
+                <h3>Skills</h3>
+                <p>No skills data found. Please update your data source.</p>
+              </div>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </section>

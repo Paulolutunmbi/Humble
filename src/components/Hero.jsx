@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { portfolio } from '../Data.jsx'
+import { ScrollIndicator } from './ScrollIndicator'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -108,8 +109,9 @@ export function Hero() {
             className="btn-secondary btn-cv"
             href="/pdf/Paul_Oreoluwa_Olutunmbi_CV.pdf"
             download="Paul_Oreoluwa_Olutunmbi_CV.pdf"
+            aria-label="Download Paul Olutunmbi CV PDF"
           >
-            Download My CV
+            Download CV (PDF)
           </a>
           <button
             className="btn-secondary"
@@ -120,10 +122,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="scroll-indicator">
-        <span>Scroll</span>
-        <div className="scroll-line" />
-      </div>
+      <ScrollIndicator targetId="about" variant="slide" />
     </section>
   )
 }

@@ -15,6 +15,26 @@ export const portfolio = {
   projects: [
     {
       id: 1,
+      title: "Humble - Portfolio",
+      slug: "humble-portfolio",
+      description: "My personal portfolio website where I showcase projects, technical skills, and contact details for recruiters and collaborators.",
+      tags: ["React.js", "Vite", "GSAP", "CSS3"],
+      github: "https://github.com/Paulolutunmbi/Humble",
+      demo: "https://humble-one.vercel.app/",
+      image: "/images/portfolio.jpg"
+    },
+    {
+      id: 2,
+      title: "Velocity Garage",
+      slug: "velocity-garage",
+      description: "A production-ready multi-page car platform built with vanilla JavaScript, Tailwind CSS, Firebase Auth, Firestore, and Firebase Storage for real-time user collections and profile data.",
+      tags: ["HTML5", "Tailwind CSS", "JavaScript", "Firebase Auth", "Firestore", "Firebase Storage"],
+      github: "https://github.com/Paulolutunmbi/velocity-garage",
+      demo: "https://velocity-garage-murex.vercel.app/",
+      image: "/images/velocity-garage.png"
+    },
+    {
+      id: 3,
       title: "MealNest",
       slug: "mealnest",
       description: "A responsive Nigerian food discovery app that lets users search meals, filter by category and region, toggle vegetarian and spicy options, and save favorite meals with localStorage. It uses an external API to deliver an interactive browsing experience with a meal detail modal.",
@@ -24,7 +44,7 @@ export const portfolio = {
       image: "/images/food-api.jpg"
     },
     {
-      id: 2,
+      id: 4,
       title: "EduGrade",
       slug: "edugrade",
       description: "A responsive web app that calculates and displays student grades for secondary school, polytechnic, and university levels. Built with JavaScript and Tailwind CSS, it demonstrates dynamic DOM manipulation, event handling, and interactive UI design.",
@@ -34,7 +54,7 @@ export const portfolio = {
       image: "/images/edugrade.jpg"
     },
     {
-      id: 3,
+      id: 5,
       title: "BookDiverse",
       slug: "bookdiverse",
       description: "A book browsing website built as a learning project. Created with HTML and CSS to practice layout design and responsive techniques. Helped me understand how to structure content and create clean, readable interfaces.",
@@ -44,7 +64,7 @@ export const portfolio = {
       image: "/images/bookdiverse.jpg"
     },
     {
-      id: 4,
+      id: 6,
       title: "Web.dev Clone",
       slug: "web-dev-clone",
       description: "A clone of the Web.dev landing page built to practice CSS layout skills. Helped me learn CSS Grid, Flexbox, and how to recreate professional designs. Focused on matching the layout and making it responsive.",
@@ -52,26 +72,6 @@ export const portfolio = {
       github: "https://github.com/Paulolutunmbi/web-dev-clone",
       demo: "https://web-dev-clone-jade.vercel.app",
       image: "/images/web-dev-clone.jpg"
-    },
-    {
-      id: 5,
-      title: "Velocityh Gragarage",
-      slug: "velocityh-gragarage",
-      description: "A modern auto service web project focused on clean layouts, responsive sections, and strong visual hierarchy for a garage brand.",
-      tags: ["HTML5", "CSS3", "JavaScript", "Responsive UI"],
-      github: "#",
-      demo: "",
-      image: "/images/velocity-garage.png"
-    },
-    {
-      id: 6,
-      title: "Humble - Portfolio",
-      slug: "humble-portfolio",
-      description: "My personal portfolio website where I showcase projects, technical skills, and contact details for recruiters and collaborators.",
-      tags: ["React.js", "CSS3", "GSAP", "Vite"],
-      github: "https://github.com/Paulolutunmbi/Humble",
-      demo: "",
-      image: "/images/portfolio.jpg"
     }
   ],
   
