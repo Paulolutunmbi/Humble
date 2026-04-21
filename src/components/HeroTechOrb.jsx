@@ -178,8 +178,25 @@ export function HeroTechOrb() {
   if (!shouldRenderScene) {
     return (
       <div className="hero-tech-fallback" aria-hidden="true">
-        <span className="hero-tech-fallback-ring" />
-        <span className="hero-tech-fallback-core" />
+        <span className="hero-tech-fallback-glow" />
+        <div className="hero-tech-fallback-avatar-wrap">
+          <img
+            src="/images/profile-pic.jpg"
+            alt=""
+            loading="lazy"
+            className="hero-tech-fallback-avatar"
+          />
+        </div>
+
+        <div className="hero-tech-code-card">
+          <div className="hero-tech-code-top" aria-hidden="true">
+            <span className="hero-tech-code-dot hero-tech-code-dot--red" />
+            <span className="hero-tech-code-dot hero-tech-code-dot--amber" />
+            <span className="hero-tech-code-dot hero-tech-code-dot--green" />
+          </div>
+          <code className="hero-tech-code-line">{'const developer = { name: "Paul" }'}</code>
+          <code className="hero-tech-code-line hero-tech-code-line--accent">{'developer.build("web experiences")'}</code>
+        </div>
       </div>
     )
   }

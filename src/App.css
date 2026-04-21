@@ -644,7 +644,6 @@
 .hero-tech-canvas-wrap,
 .hero-tech-fallback {
   width: min(100%, 260px);
-  aspect-ratio: 1 / 1;
   border-radius: 24px;
   border: 1px solid var(--border);
   background: linear-gradient(150deg, rgba(16, 185, 129, 0.14), rgba(15, 23, 42, 0.1));
@@ -652,6 +651,7 @@
 }
 
 .hero-tech-canvas-wrap {
+  aspect-ratio: 1 / 1;
   overflow: hidden;
 }
 
@@ -663,28 +663,99 @@
 
 .hero-tech-fallback {
   position: relative;
+  aspect-ratio: 4 / 5;
+  padding: 0.85rem;
   display: grid;
-  place-items: center;
+  grid-template-rows: 1fr auto;
+  gap: 0.7rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 14%, rgba(16, 185, 129, 0.24), transparent 50%),
+    linear-gradient(160deg, rgba(9, 14, 22, 0.84), rgba(12, 18, 28, 0.95));
 }
 
-.hero-tech-fallback-ring,
-.hero-tech-fallback-core {
+.hero-tech-fallback-glow {
   position: absolute;
+  width: 74%;
+  aspect-ratio: 1 / 1;
+  top: -20%;
+  right: -16%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.26), transparent 70%);
+  pointer-events: none;
+}
+
+.hero-tech-fallback-avatar-wrap {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  justify-self: center;
+  width: min(66%, 168px);
+  aspect-ratio: 1 / 1;
+  padding: 4px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(52, 211, 153, 0.42), rgba(14, 116, 144, 0.22));
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.hero-tech-fallback-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-tech-code-card {
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 14px;
+  background: rgba(2, 6, 23, 0.68);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.55rem 0.6rem 0.62rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.hero-tech-code-top {
+  display: inline-flex;
+  gap: 0.28rem;
+  margin-bottom: 0.36rem;
+}
+
+.hero-tech-code-dot {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
 }
 
-.hero-tech-fallback-ring {
-  width: 72%;
-  height: 72%;
-  border: 1px solid rgba(52, 211, 153, 0.55);
-  animation: spin-slow 18s linear infinite;
+.hero-tech-code-dot--red {
+  background: #f87171;
 }
 
-.hero-tech-fallback-core {
-  width: 32%;
-  height: 32%;
-  background: radial-gradient(circle, rgba(52, 211, 153, 0.9), rgba(16, 185, 129, 0.35));
-  box-shadow: 0 0 36px rgba(16, 185, 129, 0.4);
+.hero-tech-code-dot--amber {
+  background: #fbbf24;
+}
+
+.hero-tech-code-dot--green {
+  background: #34d399;
+}
+
+.hero-tech-code-line {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.63rem;
+  line-height: 1.45;
+  color: #cbd5e1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-tech-code-line--accent {
+  color: #6ee7b7;
 }
 
 .hero-badge {
@@ -2012,6 +2083,10 @@
   width: min(100%, 230px);
 }
 
+  .hero-tech-code-line {
+    font-size: 0.58rem;
+  }
+
 .hero-description {
   margin-left: auto;
   margin-right: auto;
@@ -2202,6 +2277,14 @@
   .hero-tech-canvas-wrap,
   .hero-tech-fallback {
     width: min(100%, 280px);
+  }
+
+  .hero-tech-fallback {
+    padding: 1rem;
+  }
+
+  .hero-tech-code-line {
+    font-size: 0.68rem;
   }
 
   .hero-buttons {
