@@ -64,9 +64,12 @@ export function Skills() {
     const cleanupFns = []
 
     const ctx = gsap.context(() => {
+      const headingTrigger = sectionRef.current?.querySelector('.skills-section__heading')
+      const gridTrigger = sectionRef.current?.querySelector('.skills-section__grid')
+
       gsap.from('.skills-section__heading > *', {
         scrollTrigger: {
-          trigger: '.skills-section',
+          trigger: headingTrigger,
           start: 'top 85%',
           toggleActions: 'play none none none'
         },
@@ -79,7 +82,7 @@ export function Skills() {
 
       gsap.from('.skills-section__card', {
         scrollTrigger: {
-          trigger: '.skills-section__grid',
+          trigger: gridTrigger,
           start: 'top 85%',
           toggleActions: 'play none none none'
         },
@@ -90,9 +93,9 @@ export function Skills() {
         ease: 'power3.out'
       })
 
-      gsap.from('.skills-section .skill-item', {
+      gsap.from('.skill-item', {
         scrollTrigger: {
-          trigger: '.skills-section__grid',
+          trigger: gridTrigger,
           start: 'top 84%',
           toggleActions: 'play none none none'
         },
@@ -103,9 +106,9 @@ export function Skills() {
         ease: 'power2.out'
       })
 
-      gsap.from('.skills-section .skill-icon i', {
+      gsap.from('.skill-icon i', {
         scrollTrigger: {
-          trigger: '.skills-section__grid',
+          trigger: gridTrigger,
           start: 'top 84%',
           toggleActions: 'play none none none'
         },
@@ -117,9 +120,9 @@ export function Skills() {
         ease: 'back.out(1.5)'
       })
 
-      gsap.from('.skills-section .skill-text', {
+      gsap.from('.skill-text', {
         scrollTrigger: {
-          trigger: '.skills-section__grid',
+          trigger: gridTrigger,
           start: 'top 84%',
           toggleActions: 'play none none none'
         },

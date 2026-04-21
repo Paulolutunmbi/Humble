@@ -1154,6 +1154,7 @@
   position: absolute;
   inset: 0;
   border-radius: var(--radius-lg);
+  pointer-events: none;
   padding: 1px;
   background: conic-gradient(from var(--border-angle), transparent 40%, var(--accent) 50%, transparent 60%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);

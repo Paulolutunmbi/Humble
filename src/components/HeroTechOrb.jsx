@@ -127,7 +127,7 @@ export function HeroTechOrb() {
       }
       document.addEventListener('visibilitychange', onVisibilityChange)
 
-      const clock = new THREE.Clock()
+      const timer = new THREE.Timer()
       let frameId = 0
 
       const animate = () => {
@@ -135,7 +135,8 @@ export function HeroTechOrb() {
 
         if (!inViewport || !tabIsVisible) return
 
-        const elapsed = clock.getElapsedTime()
+        timer.update()
+        const elapsed = timer.getElapsed()
         objectGroup.rotation.y = elapsed * 0.24
         objectGroup.rotation.x = Math.sin(elapsed * 0.45) * 0.14
 
