@@ -32,25 +32,27 @@ const skillCategories = [
   }
 ]
 
-const techMarks = {
-  'HTML5': 'H5',
-  'CSS3': 'C3',
-  'React.js': 'Rx',
-  'Tailwind CSS': 'Tw',
-  Bootstrap: 'Bs',
-  'Node.js': 'Nd',
-  'Express.js': 'Ex',
-  'Python (Basics)': 'Py',
-  MongoDB: 'Mg',
-  Firebase: 'Fb',
-  Firestore: 'Fs',
-  Git: 'Gt',
-  GitHub: 'Gh',
-  'REST APIs': 'Api',
-  'AI Productivity Tools': 'AI'
+const skillIcons = {
+  'HTML5': 'devicon-html5-plain',
+  'CSS3': 'devicon-css3-plain',
+  'React.js': 'devicon-react-original',
+  'Tailwind CSS': 'devicon-tailwindcss-plain',
+  Bootstrap: 'devicon-bootstrap-plain',
+  'Node.js': 'devicon-nodejs-plain',
+  'Express.js': 'devicon-express-original',
+  Python: 'devicon-python-plain',
+  'Python (Basics)': 'devicon-python-plain',
+  MongoDB: 'devicon-mongodb-plain',
+  Firebase: 'devicon-firebase-plain',
+  Firestore: 'devicon-firebase-plain',
+  Git: 'devicon-git-plain',
+  GitHub: 'devicon-github-original',
+  'REST APIs': 'fa-solid fa-plug-circle-bolt',
+  'AI Tools': 'fa-solid fa-brain',
+  'AI Productivity Tools': 'fa-solid fa-brain'
 }
 
-const getTechMark = (skill) => techMarks[skill] ?? skill.slice(0, 2).toUpperCase()
+const getSkillIconClass = (skill) => skillIcons[skill] ?? 'fa-solid fa-code'
 
 export function Skills() {
   const sectionRef = useRef(null)
@@ -86,6 +88,47 @@ export function Skills() {
         stagger: 0.12,
         duration: 0.7,
         ease: 'power3.out'
+      })
+
+      gsap.from('.skills-section .skill-item', {
+        scrollTrigger: {
+          trigger: '.skills-section__grid',
+          start: 'top 84%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        y: 18,
+        stagger: 0.05,
+        duration: 0.45,
+        ease: 'power2.out'
+      })
+
+      gsap.from('.skills-section .skill-icon i', {
+        scrollTrigger: {
+          trigger: '.skills-section__grid',
+          start: 'top 84%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        scale: 0.8,
+        transformOrigin: '50% 50%',
+        stagger: 0.05,
+        duration: 0.52,
+        ease: 'back.out(1.5)'
+      })
+
+      gsap.from('.skills-section .skill-text', {
+        scrollTrigger: {
+          trigger: '.skills-section__grid',
+          start: 'top 84%',
+          toggleActions: 'play none none none'
+        },
+        opacity: 0,
+        x: 10,
+        stagger: 0.05,
+        duration: 0.45,
+        delay: 0.04,
+        ease: 'power2.out'
       })
 
       const cards = gsap.utils.toArray('.skills-section__card')
@@ -154,11 +197,11 @@ export function Skills() {
 
                 <ul className="skills-section__skill-list">
                     {category.items.map(skill => (
-                    <li key={skill} className="skills-section__skill-item">
-                      <span className={`skills-section__skill-mark skills-section__skill-mark--${category.key}`} aria-hidden="true">
-                        {getTechMark(skill)}
+                    <li key={skill} className={`skills-section__skill-item skills-section__skill-item--${category.key} skill-item`}>
+                      <span className={`skills-section__skill-icon skills-section__skill-icon--${category.key} skill-icon`} aria-hidden="true">
+                        <i className={getSkillIconClass(skill)} aria-hidden="true" />
                       </span>
-                      <span className="skills-section__skill-name">{skill}</span>
+                      <span className="skills-section__skill-name skill-text">{skill}</span>
                     </li>
                     ))}
                 </ul>

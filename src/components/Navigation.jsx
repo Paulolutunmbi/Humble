@@ -44,6 +44,22 @@ export function Navigation() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false)
+      }
+    }
+
+    if (menuOpen) {
+      window.addEventListener('keydown', handleEscape)
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape)
+    }
+  }, [menuOpen])
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
     element?.scrollIntoView({ behavior: 'smooth' })
@@ -65,11 +81,12 @@ export function Navigation() {
     <>
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
         <div className="nav-container">
-          <button className="nav-logo" onClick={() => scrollToSection('home')}>
+          <button type="button" className="nav-logo" onClick={() => scrollToSection('home')}>
             {portfolio.name.split(' ')[0]}<span className="accent">.</span>
           </button>
 
           <button
+            type="button"
             className={`nav-toggle ${menuOpen ? 'open' : ''}`}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-expanded={menuOpen}
@@ -84,7 +101,7 @@ export function Navigation() {
           <ul className={`nav-menu ${menuOpen ? 'open' : ''}`} id="primary-navigation">
             {navLinks.map(link => (
               <li key={link.id} className="nav-item nav-item-link">
-                <button className="nav-link-btn" onClick={() => scrollToSection(link.id)}>
+                <button type="button" className="nav-link-btn" onClick={() => scrollToSection(link.id)}>
                   {link.label}
                 </button>
               </li>
@@ -122,6 +139,7 @@ export function Navigation() {
             </li>
             <li className="nav-item nav-item-cta">
               <button
+                type="button"
                 className="nav-cta"
                 onClick={() => scrollToSection('contact')}
               >
