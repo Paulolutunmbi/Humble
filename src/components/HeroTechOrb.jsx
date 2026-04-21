@@ -27,7 +27,7 @@ export function HeroTechOrb() {
     }
   }, [])
 
-  const shouldRenderScene = isDesktop && !prefersReducedMotion
+  const shouldRenderScene = isDesktop
 
   useEffect(() => {
     if (!shouldRenderScene || !canvasRef.current) return
@@ -54,7 +54,7 @@ export function HeroTechOrb() {
       camera.position.set(0, 0.15, 4.2)
 
       const ambient = new THREE.AmbientLight(0xffffff, 0.65)
-      const keyLight = new THREE.DirectionalLight(0x7dd3fc, 0.75)
+      const keyLight = new THREE.DirectionalLight(0xb6bcc8, 0.68)
       keyLight.position.set(3.5, 2, 3)
 
       const fillLight = new THREE.PointLight(0x10b981, 0.8, 12)
@@ -130,24 +130,33 @@ export function HeroTechOrb() {
       const timer = new THREE.Timer()
       let frameId = 0
 
-      const animate = () => {
-        frameId = window.requestAnimationFrame(animate)
-
-        if (!inViewport || !tabIsVisible) return
-
-        timer.update()
-        const elapsed = timer.getElapsed()
-        objectGroup.rotation.y = elapsed * 0.24
-        objectGroup.rotation.x = Math.sin(elapsed * 0.45) * 0.14
-
-        shellMesh.rotation.y = -elapsed * 0.3
-        orbitRing.rotation.z = elapsed * 0.42
-        orbitRingSecondary.rotation.x = -elapsed * 0.36
-
+      if (prefersReducedMotion) {
+        objectGroup.rotation.y = 0.35
+        objectGroup.rotation.x = 0.08
+        shellMesh.rotation.y = -0.25
+        orbitRing.rotation.z = 0.4
+        orbitRingSecondary.rotation.x = -0.28
         renderer.render(scene, camera)
-      }
+      } else {
+        const animate = () => {
+          frameId = window.requestAnimationFrame(animate)
 
-      animate()
+          if (!inViewport || !tabIsVisible) return
+
+          timer.update()
+          const elapsed = timer.getElapsed()
+          objectGroup.rotation.y = elapsed * 0.24
+          objectGroup.rotation.x = Math.sin(elapsed * 0.45) * 0.14
+
+          shellMesh.rotation.y = -elapsed * 0.3
+          orbitRing.rotation.z = elapsed * 0.42
+          orbitRingSecondary.rotation.x = -elapsed * 0.36
+
+          renderer.render(scene, camera)
+        }
+
+        animate()
+      }
 
       disposeScene = () => {
         window.cancelAnimationFrame(frameId)
@@ -173,33 +182,9 @@ export function HeroTechOrb() {
       isCancelled = true
       disposeScene()
     }
-  }, [shouldRenderScene])
+  }, [shouldRenderScene, prefersReducedMotion])
 
-  if (!shouldRenderScene) {
-    return (
-      <div className="hero-tech-fallback" aria-hidden="true">
-        <span className="hero-tech-fallback-glow" />
-        <div className="hero-tech-fallback-avatar-wrap">
-          <img
-            src="/images/profile-pic.jpg"
-            alt=""
-            loading="lazy"
-            className="hero-tech-fallback-avatar"
-          />
-        </div>
-
-        <div className="hero-tech-code-card">
-          <div className="hero-tech-code-top" aria-hidden="true">
-            <span className="hero-tech-code-dot hero-tech-code-dot--red" />
-            <span className="hero-tech-code-dot hero-tech-code-dot--amber" />
-            <span className="hero-tech-code-dot hero-tech-code-dot--green" />
-          </div>
-          <code className="hero-tech-code-line">{'const developer = { name: "Paul" }'}</code>
-          <code className="hero-tech-code-line hero-tech-code-line--accent">{'developer.build("web experiences")'}</code>
-        </div>
-      </div>
-    )
-  }
+  if (!shouldRenderScene) return null
 
   return (
     <div className="hero-tech-canvas-wrap" aria-hidden="true">
