@@ -38,9 +38,12 @@
   a:focus-visible,summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 5px; }
 }
 .site-header { position: sticky; top: 0; z-index: 30; background: var(--background); border-bottom: 1px solid var(--border); }
+.section-progress { height: 3px; position: relative; }
+.section-progress-track { position: absolute; inset: 1px 0; background: var(--border); }
+.section-progress-marker { position: absolute; top: 0; width: 34px; height: 3px; border-radius: 3px; background: var(--orange-display); transform: translateX(-50%); transition: left .35s ease; }
 .nav-inner { max-width: 1280px; padding: 0 64px; margin: auto; height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .wordmark { font-weight: 800; font-size: 20px; white-space: nowrap; } .wordmark > span:first-child { color: var(--orange-display); } .wordmark-surname { font-weight: 500; }
-.desktop-nav { display: flex; gap: 25px; font-size: 14px; font-weight: 500; } .desktop-nav a { color: var(--muted-foreground); transition: color .2s; } .desktop-nav a:hover { color: var(--primary); }
+.desktop-nav { display: flex; gap: 25px; font-size: 14px; font-weight: 500; } .desktop-nav a { color: var(--muted-foreground); transition: color .2s; } .desktop-nav a:hover, .desktop-nav a[aria-current="location"] { color: var(--primary); }
 .nav-actions { display: flex; gap: 4px; } .mobile-menu-toggle { display: none; } .mobile-nav { display: none; }
 .container { max-width: 1280px; margin: auto; padding: 0 64px; }
 .mono,.section-label,.eyebrow,.status,.tech-tags,.architecture-label,.screenshot-placeholder,.progression-strip,.project-progression,.footer-meta { font-family: var(--font-mono); }

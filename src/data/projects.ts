@@ -1,16 +1,10 @@
-import nomiScreenshot from '@/assets/nomi.asset.json';
-import cryptoScreenshot from '@/assets/crypto-vault.asset.json';
-import aminatScreenshot from '@/assets/aminat-studio.asset.json';
-import velocityScreenshot from '@/assets/velocity-garage.asset.json';
-import bookScreenshot from '@/assets/bookdiverse.asset.json';
-
 export type ProjectStatus = 'COMPLETED' | 'IN PROGRESS' | 'APPLIED' | 'EXPLORING';
 export interface Project {
   id: string; name: string; category: string; tier: 1 | 2 | 3; status: ProjectStatus; statusNote?: string;
   description: string; achievement: string; stack: string[]; fullStack: string; details: { title: string; text: string }[];
   liveUrl: string; githubUrl: string; screenshot: string; flow: string[]; progression: string; note?: string;
 }
-// TODO: Add real screenshot paths and missing live URLs below. Empty means unavailable, never a fabricated link.
+// Screenshots use the matching, filename-based assets in /public. Empty means unavailable.
 export const projects: Project[] = [
   {
     id: 'nomi', name: 'NOMI', category: 'AI assistant / Productivity', tier: 1, status: 'COMPLETED', statusNote: 'MVP',
@@ -23,7 +17,7 @@ export const projects: Project[] = [
       { title: 'Mail and calendar, connected', text: 'Gmail search, read, draft, reply, send, mark read and attachments. Calendar checks, event creation, modification and deletion, plus Google Meet information where supported.' },
       { title: 'Separate identity and permission', text: 'Firebase handles app sign-in; Google OAuth separately authorizes Gmail and Calendar access. Credentials stay server-side and Google tokens are encrypted at rest. Taken through Google’s OAuth verification and compliance process. A substantial automated backend test suite validates the workflows.' },
     ],
-    liveUrl: 'https://nomi.olutunmbipaul.xyz', githubUrl: 'https://github.com/Paulolutunmbi/NOMi', screenshot: nomiScreenshot.url,
+    liveUrl: 'https://nomi.olutunmbipaul.xyz', githubUrl: 'https://github.com/Paulolutunmbi/NOMi', screenshot: '/nomi.png',
     flow: ['User message', 'AI intent', 'Action proposal', 'Validation', 'Approval', 'Execution', 'Result'],
     progression: 'From application logic to safe, AI-driven workflows.',
   },
@@ -37,7 +31,7 @@ export const projects: Project[] = [
       { title: 'A complete locking lifecycle', text: 'Connect wallet → select ERC-20 → enter amount and unlock time → approve → create lock → wait → withdraw. Active, ready-to-withdraw and completed locks, chain-time tracking, unlock notifications, transaction status, Sepolia token detection, demo faucet and PWA install.' },
       { title: 'Enforced on-chain', text: 'TokenLocker uses lock IDs, owner-only withdrawals, unlock-time checks, OpenZeppelin SafeERC20 and reentrancy protection. A 0.0001 ETH protocol fee applies. No backend account database. Demo tokens HumbleToken (HMT) and MockToken (MTK) have no real value.' },
     ],
-    liveUrl: 'https://veridian-vault.vercel.app', githubUrl: 'https://github.com/Paulolutunmbi/Crypto-Vault', screenshot: cryptoScreenshot.url,
+    liveUrl: 'https://veridian-vault.vercel.app', githubUrl: 'https://github.com/Paulolutunmbi/Crypto-Vault', screenshot: '/cryptovault.png',
     flow: ['Frontend', 'EVM wallet', 'TokenLocker', 'Sepolia'],
     note: 'Educational testnet project. Not independently audited. Not production financial infrastructure.',
     progression: 'From backend trust to rules enforced on-chain.',
@@ -52,7 +46,7 @@ export const projects: Project[] = [
       { title: 'The complete product flow', text: 'Accounts, login, profiles, feed, post creation, likes, comments, user discovery, Cloudinary avatars, settings/privacy and forgot-password flow.' },
       { title: 'Realtime meets structured APIs', text: 'Socket.IO delivers new posts, likes and post deletions. Bearer-token authentication, protected routes, Axios interceptors, an API service abstraction and centralized user state keep the application organized.' },
     ],
-    liveUrl: 'https://glimpse-theta-swart.vercel.app', githubUrl: 'https://github.com/Paulolutunmbi/Glimpse', screenshot: '',
+    liveUrl: 'https://glimpse-theta-swart.vercel.app', githubUrl: 'https://github.com/Paulolutunmbi/Glimpse', screenshot: '/glimpse.png',
     flow: ['React client', 'REST API', 'MongoDB', 'Socket.IO'],
     note: '~50 early users (approximate, earlier stage).', progression: 'Building the full-stack foundation: identity, data and realtime.',
   },
@@ -65,7 +59,7 @@ export const projects: Project[] = [
     details: [
       { title: 'Public gallery, private studio', text: 'Featured work, gallery filtering and search, artwork details, related work, about and contact. Admin login/logout, session checks, password change/reset, artwork CRUD, filters, drag-and-drop ordering and studio settings. The backend enforces a maximum of three featured artworks and handles Cloudinary media.' },
     ],
-    liveUrl: 'https://aminatstudio.vercel.app', githubUrl: 'https://github.com/Paulolutunmbi/Aminat-Studio', screenshot: aminatScreenshot.url, flow: [], progression: 'Applying full-stack engineering to real client work.',
+    liveUrl: 'https://aminatstudio.vercel.app', githubUrl: 'https://github.com/Paulolutunmbi/Aminat-Studio', screenshot: '/aminatstudio.png', flow: [], progression: 'Applying full-stack engineering to real client work.',
   },
   {
     id: 'velocity-garage', name: 'Velocity Garage', category: 'Frontend / Car marketplace', tier: 2, status: 'COMPLETED',
@@ -74,7 +68,7 @@ export const projects: Project[] = [
     stack: ['JavaScript', 'HTML', 'CSS', 'Firebase Auth'],
     fullStack: 'JavaScript, HTML, CSS, Firebase Authentication, localStorage',
     details: [{ title: 'Product-focused frontend', text: 'Search and filtering, vehicle comparison, favorites and saved vehicles, Firebase Authentication and localStorage persistence in a responsive interface.' }],
-    liveUrl: 'https://velocity-garage-murex.vercel.app/', githubUrl: 'https://github.com/Paulolutunmbi/velocity-garage', screenshot: velocityScreenshot.url, flow: [], progression: 'Moving from static pages to interactive product experiences.',
+    liveUrl: 'https://velocity-garage-murex.vercel.app/', githubUrl: 'https://github.com/Paulolutunmbi/velocity-garage', screenshot: '/velocitygarage.png', flow: [], progression: 'Moving from static pages to interactive product experiences.',
   },
   {
     id: 'bookdiverse', name: 'BookDiverse', category: 'Learning project / Frontend only', tier: 3, status: 'COMPLETED',
@@ -83,7 +77,7 @@ export const projects: Project[] = [
     stack: ['HTML5', 'CSS3', 'Bootstrap 5.3.8'],
     fullStack: 'HTML5, CSS3, Bootstrap 5.3.8, Google Fonts, responsive design',
     details: [{ title: 'An e-commerce interface concept', text: 'A buying/selling books concept: landing, login/signup UI, book and bookstore details, cart, checkout and profile; vendor signup, dashboard and order UI. Frontend only.' }],
-    liveUrl: 'https://glimpse-theta-swart.vercel.app/', githubUrl: 'https://github.com/Paulolutunmbi/project_bookdiverse-SQI', screenshot: bookScreenshot.url, flow: [], progression: 'The starting point: understanding interfaces and user journeys.',
+    liveUrl: 'https://glimpse-theta-swart.vercel.app/', githubUrl: 'https://github.com/Paulolutunmbi/project_bookdiverse-SQI', screenshot: '/bookdiverse.png', flow: [], progression: 'The starting point: understanding interfaces and user journeys.',
   },
 ];
 export const contactEmail: string = 'oluwatunmbipaul@gmail.com';
